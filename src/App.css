@@ -1,3 +1,11 @@
+.dbackground{
+  background-color: #61dafb;
+}
+
+.changebackground{
+  background-color: chartreuse;
+}
+
 .App {
   text-align: center;
 }

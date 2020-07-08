@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {Set} from './setcolor';
 
 function App() {
+  let [count, setCount] = useState('A')
+  let [backcolor, setColor] = useState(true)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div className={`App dbackground ${backcolor ? 'changebackground' : ''}`}>
+      {/* <h1>COUNT = {count}</h1> */}
+      <Set counter={count}/>
+      <button 
+      onClick={
+        ()=>{setCount(String.fromCharCode(count.charCodeAt(0)+1))}}><strong>Next Character Count</strong>
+      </button>
+      <br />
+      <br />
+      <button onClick={
+        ()=>{if(backcolor){setColor(false)}else{setColor(true)}}
+      }><strong>Change Background Color</strong></button>
     </div>
   );
 }
